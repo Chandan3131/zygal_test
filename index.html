@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        td {
+            text-align: center;
+        }
+
+        select,
+        input {
+            padding: 8px 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="calender">
+            <form>
+                <label for="calender">Calender</label> <br></br>
+
+                <select name="month" id="month_option">
+                    <option value="">Month</option>
+
+                </select>
+
+                <select name="year" id="year_option">
+                    <option value="">Year</option>
+
+                </select> <br></br>
+
+            </form>
+
+        </div>
+
+        <table border="1" style="height: 100px; width: 50%; border-collapse: collapse;" cellspacing="0px"
+            cellpadding="10px">
+            <tr>
+                <td>Sun</td>
+                <td>Mon</td>
+                <td>Tue</td>
+                <td>Wed</td>
+                <td>Thu</td>
+                <td>Fri</td>
+                <td>Sat</td>
+            </tr>
+            <tr>
+                <td id="1">1</td>
+                <td id="2">2</td>
+                <td id="3">3</td>
+                <td id="4">4</td>
+                <td id="5">5</td>
+                <td id="6">6</td>
+                <td id="7">7</td>
+            </tr>
+            <tr>
+                <td id="8">8</td>
+                <td id="9">9</td>
+                <td id="10">10</td>
+                <td id="11">11</td>
+                <td id="12">12</td>
+                <td id="13">13</td>
+                <td id="14">14</td>
+            </tr>
+            <tr>
+                <td id="15">15</td>
+                <td id="16">16</td>
+                <td id="17">17</td>
+                <td id="18">18</td>
+                <td id="19">19</td>
+                <td id="20">20</td>
+                <td id="21">21</td>
+            </tr>
+            <tr>
+                <td id="22">22</td>
+                <td id="23">23</td>
+                <td id="25">24</td>
+                <td id="26">25</td>
+                <td id="26">26</td>
+                <td id="27">27</td>
+                <td id="28">28</td>
+            </tr>
+            <tr>
+                <td id="29">29</td>
+                <td id="30">30</td>
+                <td id="31">31</td>
+                <td id="32"></td>
+                <td id="33"></td>
+                <td id="34"></td>
+                <td id="35"></td>
+            </tr>
+        </table>
+        <br>
+        <div class="input">
+            <input type=number" placeholder="Enter any Date" />
+            <input type="button" value="submit" onclick="Selected()" />
+        </div>
+    </div>
+
+    <script>
+        for (let i = 1; i <= 31; i++) {
+            let option = document.createElement("OPTION");
+            option.value = i;
+            option.innerText = `${i}`;
+
+            let insert = document.getElementById("day_option");
+            insert.appendChild(option);
+
+        }
+
+        for (let i = 1; i <= 7; i++) {
+            const week = ['Monday', 'Tuesday', 'Wednesday', 'Thrusday', 'Friday', 'Saturday', 'Sunday'];
+
+            let option = document.createElement("OPTION");
+            option.value = week[i - 1];
+            option.innerText = week[i - 1];
+
+            let insert = document.getElementById("week_option");
+            insert.appendChild(option);
+
+        }
+
+        for (let i = 1; i <= 12; i++) {
+            const month = ['January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+            let option = document.createElement("OPTION");
+            option.value = month[i - 1];
+            option.innerText = month[i - 1];
+
+            let insert = document.getElementById("month_option");
+            insert.appendChild(option);
+
+        }
+
+        for (let i = 1900; i <= 2030; i++) {
+
+            let option = document.createElement("OPTION");
+            option.value = i;
+            option.innerText = i;
+
+            let insert = document.getElementById("year_option");
+            insert.appendChild(option);
+
+        }
+        
+        const index = document.getSelection: day;
+
+        function colorChange() {
+            let color = document.createElement("CLASS")
+
+        let dget;
+        let wget;
+        let mget;
+        let yget;
+        function Selected() {
+            dget = document.getElementById("day_option");
+            dget = (dget.options[dget.selectedIndex].value);
+            alert(dget);
+
+            var wget = document.getElementById("week_option");
+            wget = (wget.options[wget.selectedIndex].value);
+
+            var mget = document.getElementById("month_option");
+            mget = (mget.options[mget.selectedIndex].value);
+
+            var yget = document.getElementById("year_option");
+            yget = (yget.options[yget.selectedIndex].value);
+
+            const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+            const d = new Date(" `${mget} ${dget}, ${yget} 01:15:00 ` ");
+            let day = weekday[d.getDay()];
+            alert(d);
+        }
+
+    </script>
+
+</body>
+
+</html>
